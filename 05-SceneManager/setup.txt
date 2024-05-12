@@ -1,5 +1,5 @@
 [SETTINGS]
-start	5
+start	1
 width	320
 height	240
 
@@ -17,3 +17,4 @@ height	240
 0	textures\mario.png
 10	textures\enemies.png
 20	textures\misc.png
+30	textures\SMB3_1-1_map_top.png

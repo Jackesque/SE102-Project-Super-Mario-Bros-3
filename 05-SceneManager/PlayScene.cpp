@@ -14,6 +14,7 @@
 #include "Coin.h"
 #include "Platform.h"
 #include "Portal.h"
+#include "Background.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -127,7 +128,6 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 
 	case OBJECT_TYPE_PLATFORM:
 	{
-
 		float cell_width = (float)atof(tokens[3].c_str());
 		float cell_height = (float)atof(tokens[4].c_str());
 		int length = atoi(tokens[5].c_str());
@@ -140,9 +140,8 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 			cell_width, cell_height, length,
 			sprite_begin, sprite_middle, sprite_end
 		);
-
-		break;
 	}
+	break;
 
 	case OBJECT_TYPE_PORTAL:
 	{
@@ -152,6 +151,8 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		obj = new CPortal(x, y, r, b, scene_id);
 	}
 	break;
+
+	case OBJECT_TYPE_BACKGROUND: obj = new CBackground(x,y); break;
 
 
 	default:

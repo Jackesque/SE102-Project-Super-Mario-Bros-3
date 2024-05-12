@@ -75,6 +75,9 @@
     <ClCompile Include="Portal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -146,6 +149,9 @@
     <ClInclude Include="Portal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="scene01.txt">
@@ -172,7 +178,10 @@
     <Text Include="mario.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="mario-sample.txt">
+    <Text Include="setup.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="background.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
@@ -187,6 +196,21 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="textures\misc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\1-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\misc-7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\NES - Super Mario Bros 3 - Stage Tiles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\SMB3_1-1_map_hidden.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\SMB3_1-1_map_top.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

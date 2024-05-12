@@ -5,11 +5,15 @@ brick.txt
 coin.txt
 goomba.txt
 cloud.txt
+background.txt
 #
 [OBJECTS]
 # type	x	y	extra_settings per object type
 # type: 0 = Mario , 1 = Brick, 2 = Goomba, 3 = Koopas
 # See OBJECT_TYPE constants in AssetIDs.h
+
+# BACKGROUND
+30	1407	-12
 
 # MARIO
 0	20	10
@@ -57,10 +61,9 @@ cloud.txt
 
 #Platform
 5	90	136	16	15	16	51000	52000	53000
-5	120	90	16	16	8	20001	20001	20001
+5	120	90	16	16	8	20000	20000	20000
 
 #Portal 
 50	100	40	120	60	1
 50	200	40	220	60	2
 50	300	40	320	60	5
-50	300	110	316	140	2

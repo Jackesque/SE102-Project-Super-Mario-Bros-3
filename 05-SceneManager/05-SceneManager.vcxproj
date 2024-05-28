@@ -199,6 +199,7 @@
     <Text Include="brick.txt" />
     <Text Include="cloud.txt" />
     <Text Include="coin.txt" />
+    <Text Include="floor.txt" />
     <Text Include="goomba.txt" />
     <Text Include="setup.txt" />
     <Text Include="mario.txt" />
@@ -213,7 +214,7 @@
     <Image Include="textures\mario.png" />
     <Image Include="textures\misc-7.png" />
     <Image Include="textures\misc.png" />
-    <Image Include="textures\NES - Super Mario Bros 3 - Stage Tiles.png" />
+    <Image Include="textures\tiles.png" />
     <Image Include="textures\SMB3_1-1_map_hidden.png" />
     <Image Include="textures\SMB3_1-1_map_top.png" />
   </ItemGroup>

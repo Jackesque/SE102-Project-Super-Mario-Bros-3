@@ -184,6 +184,9 @@
     <Text Include="background.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="floor.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\bbox.png">
@@ -204,7 +207,7 @@
     <Image Include="textures\misc-7.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="textures\NES - Super Mario Bros 3 - Stage Tiles.png">
+    <Image Include="textures\tiles.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="textures\SMB3_1-1_map_hidden.png">

@@ -18,3 +18,4 @@ height	240
 10	textures\enemies.png
 20	textures\misc.png
 30	textures\SMB3_1-1_map_top.png
+40	textures\tiles.png

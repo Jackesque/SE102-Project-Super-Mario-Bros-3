@@ -165,7 +165,7 @@ int CMario::GetAniIdSmall()
 
 
 //
-// Get animdation ID for big Mario
+// Get animation ID for big Mario
 //
 int CMario::GetAniIdBig()
 {
@@ -241,7 +241,7 @@ void CMario::Render()
 
 	//RenderBoundingBox();
 	
-	DebugOutTitle(L"Coins: %d", coin);
+	//DebugOutTitle(L"isSitting - %d, vx - %d, vy - %d", this->isSitting, this->vx, this->vy);
 }
 
 void CMario::SetState(int state)
@@ -251,33 +251,58 @@ void CMario::SetState(int state)
 
 	switch (state)
 	{
+	case MARIO_STATE_SIT:
+		if (isOnPlatform && level != MARIO_LEVEL_SMALL)
+		{
+			state = MARIO_STATE_IDLE;
+			isSitting = true;
+			vx = 0.0f;
+			vy = 0.0f;
+			ax = 0.0f;
+			y += MARIO_SIT_HEIGHT_ADJUST;
+		}
+		break;
+
+	case MARIO_STATE_SIT_RELEASE:
+		if (isSitting)
+		{
+			isSitting = false;
+			state = MARIO_STATE_IDLE;
+			y -= MARIO_SIT_HEIGHT_ADJUST;
+		}
+		break;
+
 	case MARIO_STATE_RUNNING_RIGHT:
 		if (isSitting) break;
 		maxVx = MARIO_RUNNING_SPEED;
 		ax = MARIO_ACCEL_RUN_X;
 		nx = 1;
 		break;
+
 	case MARIO_STATE_RUNNING_LEFT:
 		if (isSitting) break;
 		maxVx = -MARIO_RUNNING_SPEED;
 		ax = -MARIO_ACCEL_RUN_X;
 		nx = -1;
 		break;
+
 	case MARIO_STATE_WALKING_RIGHT:
 		if (isSitting) break;
 		maxVx = MARIO_WALKING_SPEED;
 		ax = MARIO_ACCEL_WALK_X;
 		nx = 1;
 		break;
+
 	case MARIO_STATE_WALKING_LEFT:
 		if (isSitting) break;
 		maxVx = -MARIO_WALKING_SPEED;
 		ax = -MARIO_ACCEL_WALK_X;
 		nx = -1;
 		break;
+
 	case MARIO_STATE_JUMP:
-		//if (isSitting) break;
 		vy = -MARIO_JUMP_SPEED_Y;
+		if (isSitting) break;
 		if (isOnPlatform)
 		{
 			if (abs(this->vx) == MARIO_RUNNING_SPEED)
@@ -289,25 +314,6 @@ void CMario::SetState(int state)
 
 	case MARIO_STATE_RELEASE_JUMP:
 		if (vy < 0) vy += MARIO_JUMP_SPEED_Y / 2;
-		break;
-
-	case MARIO_STATE_SIT:
-		if (isOnPlatform && level != MARIO_LEVEL_SMALL)
-		{
-			state = MARIO_STATE_IDLE;
-			isSitting = true;
-			vx = 0; vy = 0.0f;
-			y +=MARIO_SIT_HEIGHT_ADJUST;
-		}
-		break;
-
-	case MARIO_STATE_SIT_RELEASE:
-		if (isSitting)
-		{
-			isSitting = false;
-			state = MARIO_STATE_IDLE;
-			y -= MARIO_SIT_HEIGHT_ADJUST;
-		}
 		break;
 
 	case MARIO_STATE_IDLE:

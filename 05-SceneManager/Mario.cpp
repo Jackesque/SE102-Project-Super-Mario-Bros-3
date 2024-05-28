@@ -26,6 +26,9 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 	isOnPlatform = false;
 
+	if (state == MARIO_STATE_WALKING_LEFT && x < 8.0f) { x = 8.0f; }
+	if (state == MARIO_STATE_RUNNING_LEFT && x < 16.0f) { x = 16.0f; }
+
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }
 

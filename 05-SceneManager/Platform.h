@@ -12,6 +12,7 @@ protected:
 	float cellWidth;
 	float cellHeight;
 	int spriteIdBegin, spriteIdMiddle, spriteIdEnd;
+	int isBlocking = 1;
 
 public: 
 	CPlatform(float x, float y,
@@ -30,6 +31,8 @@ public:
 	void Update(DWORD dt) {}
 	void GetBoundingBox(float& l, float& t, float& r, float& b);
 	void RenderBoundingBox();
+	int IsBlocking() { return isBlocking; }
+	void SetIsBlocking(int isBlocking) { this->isBlocking = isBlocking; }
 };
 
 typedef CPlatform* LPPLATFORM;

@@ -6,7 +6,9 @@ brick.txt
 coin.txt
 goomba.txt
 cloud.txt
-floor.txt
+ground.txt
+block_platform.txt
+question_mark_box.txt
 
 [OBJECTS]
 # type	x	y	extra_settings per object type
@@ -15,10 +17,18 @@ floor.txt
 # BACKGROUND
 30	1407	-12
 
+# Platforms
+
+## First clump
+29	279	115	16	16	5	251000	252000	253000	254000	255000	256000	257000	258000	259000
+29	247	147	16	16	3	241000	242000	243000	244000	245000	246000	247000	248000	249000
+
+## Second clump
+
 # MARIO
 0	20	10
 
-#COIN
+# Coins
 4	100	120
 4	120	120
 4	140	120
@@ -28,8 +38,17 @@ floor.txt
 #Goomba
 #2	300	10
 
-#Platform
+#Question Mark Box
+18	183	132
+18	199	132
+18	231	84
+18	247	84
+18	423	100
+18	663	164
+18	711	132
+18	1479	148
 
+##Floor
 5	-8	195	16	15	40	221000	222000	223000
 
 5	632	179	16	15	29	221000	222000	223000
@@ -41,13 +60,14 @@ floor.txt
 
 5	1672	195	16	15	36	221000	222000	223000
 
+5	2264	195	16	15	35	221000	222000	223000
+
 
 #testing
 
 #working
-5	2264	195	16	15	35	221000	222000	223000
 
 #Portal 
 50	100	40	120	60	1
-50	200	40	220	60	2
-50	300	40	320	60	5
+50	200	40	220	60	1
+50	300	40	320	60	1

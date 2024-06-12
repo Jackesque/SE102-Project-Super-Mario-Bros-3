@@ -13,6 +13,9 @@
 #include "Brick.h"
 #include "Coin.h"
 #include "Platform.h"
+#include "Platform3ByY.h"
+#include "QuestionMarkBox.h"
+
 #include "Portal.h"
 #include "Background.h"
 
@@ -143,6 +146,8 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	}
 	break;
 
+	case OBJECT_TYPE_QUESTION_MARK_BOX: obj = new CQuestionMarkBox(x, y); break;
+
 	case OBJECT_TYPE_PORTAL:
 	{
 		float r = (float)atof(tokens[3].c_str());
@@ -153,7 +158,31 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	break;
 
 	case OBJECT_TYPE_BACKGROUND: obj = new CBackground(x,y); break;
+	
+	case OBJECT_TYPE_PLATFORM_3_BY_Y:
+	{
+		float cell_width = (float)atof(tokens[3].c_str());
+		float cell_height = (float)atof(tokens[4].c_str());
+		int height = atoi(tokens[5].c_str());
+		int sprite_begin_top = atoi(tokens[6].c_str());
+		int sprite_middle_top = atoi(tokens[7].c_str());
+		int sprite_end_top = atoi(tokens[8].c_str());
+		int sprite_begin_mid = atoi(tokens[9].c_str());
+		int sprite_middle_mid = atoi(tokens[10].c_str());
+		int sprite_end_mid = atoi(tokens[11].c_str());
+		int sprite_begin_bot = atoi(tokens[12].c_str());
+		int sprite_middle_bot = atoi(tokens[13].c_str());
+		int sprite_end_bot = atoi(tokens[14].c_str());
 
+		obj = new CPlatform3ByY(
+			x, y,
+			cell_width, cell_height, height,
+			sprite_begin_top, sprite_middle_top, sprite_end_top,
+			sprite_begin_mid, sprite_middle_mid, sprite_end_mid,
+			sprite_begin_bot, sprite_middle_bot, sprite_end_bot
+		);
+	}
+	break;
 
 	default:
 		DebugOut(L"[ERROR] Invalid object type: %d\n", object_type);

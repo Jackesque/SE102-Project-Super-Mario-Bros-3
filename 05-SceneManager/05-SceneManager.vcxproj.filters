@@ -78,6 +78,12 @@
     <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QuestionMarkBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform3ByY.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -152,6 +158,12 @@
     <ClInclude Include="Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="QuestionMarkBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform3ByY.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="scene01.txt">
@@ -184,7 +196,13 @@
     <Text Include="background.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="floor.txt">
+    <Text Include="ground.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="block_platform.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="question_mark_box.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

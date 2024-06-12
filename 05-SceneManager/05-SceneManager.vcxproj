@@ -160,8 +160,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="Platform3ByY.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="QuestionMarkBox.cpp" />
     <ClCompile Include="SampleKeyEventHandler.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Sprites.cpp" />
@@ -184,8 +186,10 @@
     <ClInclude Include="KeyEventHandler.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="Platform3ByY.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="Portal.h" />
+    <ClInclude Include="QuestionMarkBox.h" />
     <ClInclude Include="SampleKeyEventHandler.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
@@ -196,11 +200,13 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="background.txt" />
+    <Text Include="block_platform.txt" />
     <Text Include="brick.txt" />
     <Text Include="cloud.txt" />
     <Text Include="coin.txt" />
-    <Text Include="floor.txt" />
+    <Text Include="ground.txt" />
     <Text Include="goomba.txt" />
+    <Text Include="question_mark_box.txt" />
     <Text Include="setup.txt" />
     <Text Include="mario.txt" />
     <Text Include="scene0005.txt" />

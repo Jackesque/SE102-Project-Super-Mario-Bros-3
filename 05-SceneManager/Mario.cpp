@@ -8,6 +8,7 @@
 #include "Coin.h"
 #include "Platform.h"
 #include "Platform3ByY.h"
+#include "QuestionMarkBox.h"
 #include "Portal.h"
 
 #include "Collision.h"
@@ -57,10 +58,10 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithGoomba(e);
 	else if (dynamic_cast<CCoin*>(e->obj))
 		OnCollisionWithCoin(e);
-	else if (dynamic_cast<CPlatform*>(e->obj))
-		OnCollisionWithPlatform(e);
 	else if (dynamic_cast<CPlatform3ByY*>(e->obj))
 		OnCollisionWithPlatform3ByY(e);
+	else if (dynamic_cast<CQuestionMarkBox*>(e->obj))
+		OnCollisionWithQuestionMarkBox(e);
 	else if (dynamic_cast<CPortal*>(e->obj))
 		OnCollisionWithPortal(e);
 }
@@ -101,18 +102,12 @@ void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 
 void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 {
-	e->obj->Delete();
-	coin++;
-}
-
-void CMario::OnCollisionWithPlatform(LPCOLLISIONEVENT e)
-{
-	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
-	//if (e->nx != 0 || e->ny > 0) {
-	//	platform->SetIsBlocking(0);
-	//	return;
-	//}
-	platform->SetIsBlocking(1);
+	CCoin* coinObj = dynamic_cast<CCoin*>(e->obj);
+	if (e->ny > 0)
+	{
+		coinObj->SetState(COIN_STATE_ACTIVATED);
+	}
+	++coin;
 }
 
 void CMario::OnCollisionWithPlatform3ByY(LPCOLLISIONEVENT e)
@@ -120,12 +115,20 @@ void CMario::OnCollisionWithPlatform3ByY(LPCOLLISIONEVENT e)
 	CPlatform3ByY* platform = dynamic_cast<CPlatform3ByY*>(e->obj);
 	if (e->ny != 0)
 	{
-		DebugOut(L"nx==0: e->nx = %d, e->ny = %d\n", e->nx, e->ny);
+		//DebugOut(L"nx==0: e->nx = %d, e->ny = %d\n", e->nx, e->ny);
 		platform->SetIsBlocking(1);
 	}
 	else {
-		DebugOut(L"nx!=0: e->nx = %d, e->ny = %d\n", e->nx, e->ny);
+		//DebugOut(L"nx!=0: e->nx = %d, e->ny = %d\n", e->nx, e->ny);
 		platform->SetIsBlocking(0);
+	}
+}
+
+void CMario::OnCollisionWithQuestionMarkBox(LPCOLLISIONEVENT e)
+{
+	CQuestionMarkBox* qmbox = dynamic_cast<CQuestionMarkBox*>(e->obj);
+	if (e->ny > 0) {
+		qmbox->SetState(QMBOX_STATE_TOUCHED);
 	}
 }
 
@@ -271,8 +274,6 @@ void CMario::Render()
 		aniId = GetAniIdSmall();
 
 	animations->Get(aniId)->Render(x, y);
-
-	//RenderBoundingBox();
 	
 	//DebugOutTitle(L"isSitting - %d, vx - %d, vy - %d", this->isSitting, this->vx, this->vy);
 }

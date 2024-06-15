@@ -163,20 +163,21 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	{
 		float cell_width = (float)atof(tokens[3].c_str());
 		float cell_height = (float)atof(tokens[4].c_str());
-		int height = atoi(tokens[5].c_str());
-		int sprite_begin_top = atoi(tokens[6].c_str());
-		int sprite_middle_top = atoi(tokens[7].c_str());
-		int sprite_end_top = atoi(tokens[8].c_str());
-		int sprite_begin_mid = atoi(tokens[9].c_str());
-		int sprite_middle_mid = atoi(tokens[10].c_str());
-		int sprite_end_mid = atoi(tokens[11].c_str());
-		int sprite_begin_bot = atoi(tokens[12].c_str());
-		int sprite_middle_bot = atoi(tokens[13].c_str());
-		int sprite_end_bot = atoi(tokens[14].c_str());
+		int width = atoi(tokens[5].c_str());
+		int height = atoi(tokens[6].c_str());
+		int sprite_begin_top = atoi(tokens[7].c_str());
+		int sprite_middle_top = atoi(tokens[8].c_str());
+		int sprite_end_top = atoi(tokens[9].c_str());
+		int sprite_begin_mid = atoi(tokens[10].c_str());
+		int sprite_middle_mid = atoi(tokens[11].c_str());
+		int sprite_end_mid = atoi(tokens[12].c_str());
+		int sprite_begin_bot = atoi(tokens[13].c_str());
+		int sprite_middle_bot = atoi(tokens[14].c_str());
+		int sprite_end_bot = atoi(tokens[15].c_str());
 
 		obj = new CPlatform3ByY(
 			x, y,
-			cell_width, cell_height, height,
+			cell_width, cell_height, width, height,
 			sprite_begin_top, sprite_middle_top, sprite_end_top,
 			sprite_begin_mid, sprite_middle_mid, sprite_end_mid,
 			sprite_begin_bot, sprite_middle_bot, sprite_end_bot

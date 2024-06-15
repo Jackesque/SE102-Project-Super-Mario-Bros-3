@@ -8,7 +8,8 @@
 class CPlatform3ByY : public CGameObject
 {
 protected:
-	int height;				// Unit: cell 
+	int width;				// Unit: cell 
+	int height;
 	float cellWidth;
 	float cellHeight;
 	int spriteIdBeginTop, spriteIdMiddleTop, spriteIdEndTop;
@@ -18,12 +19,13 @@ protected:
 
 public:
 	CPlatform3ByY(float x, float y,
-		float cell_width, float cell_height, int height,
+		float cell_width, float cell_height, int width, int height,
 		int sprite_id_begin_top, int sprite_id_middle_top, int sprite_id_end_top,
 		int sprite_id_begin_mid, int sprite_id_middle_mid, int sprite_id_end_mid,
 		int sprite_id_begin_bot, int sprite_id_middle_bot, int sprite_id_end_bot) 
 		:CGameObject(x, y)
 	{
+		this->width = width;
 		this->height = height;
 		this->cellWidth = cell_width;
 		this->cellHeight = cell_height;

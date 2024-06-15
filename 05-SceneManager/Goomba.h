@@ -14,28 +14,24 @@
 #define GOOMBA_STATE_WALKING 100
 #define GOOMBA_STATE_DIE 200
 
-#define ID_ANI_GOOMBA_WALKING 5000
-#define ID_ANI_GOOMBA_DIE 5001
-
 class CGoomba : public CGameObject
 {
 protected:
-	float ax;				
-	float ay; 
+	float ax;		
+	float ay;
 
 	ULONGLONG die_start;
 
-	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
-	virtual void Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects);
-	virtual void Render();
+	void Render();
+	void Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects);
+	void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 
-	virtual int IsCollidable() { return 1; };
-	virtual int IsBlocking() { return 0; }
-	virtual void OnNoCollision(DWORD dt);
-
-	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
+	int IsCollidable() { return 1; };
+	int IsBlocking() { return 0; }
+	void OnNoCollision(DWORD dt);
+	void OnCollisionWith(LPCOLLISIONEVENT e);
 
 public: 	
 	CGoomba(float x, float y);
-	virtual void SetState(int state);
+	void SetState(int state);
 };
